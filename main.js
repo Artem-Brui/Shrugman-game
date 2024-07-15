@@ -9,8 +9,6 @@ const movies = [...LINK_TITLES.movies];
 const books = [...LINK_TITLES.books];
 //==============
 
-// speaking
-//==============
 
 console.clear();
 function greetingGame() {
