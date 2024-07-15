@@ -1,1 +1,3 @@
 # Shrugman-game
+
+Game is creating...
