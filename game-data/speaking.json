@@ -1,4 +1,6 @@
 {
   "greeting": "Hi! Let's play a game with me!",
-  "nameCheker": "Please, tell me your name and I'll check your progress here..\n\nSo, what is your name? \n👉 "
+  "nameInputStart": "Please, tell me your name \nand I'll check your progress here..\n\nSo, what is your name? \n👉 ",
+  "nameInputMistake": "Sorry, I forgot to explain you \nsome rules regarding a name...\n\nA name can contain \nonly big or small letters, numbers \nand symbols like these: \"-\" \"_\" \".\" \n\nSo, let's try again 👉 ",
+  "userNotFound": "Hmm🤔... \nLooks like you're here for the first time."
 }
