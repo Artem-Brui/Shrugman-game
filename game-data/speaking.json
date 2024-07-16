@@ -1,6 +1,10 @@
 {
   "greeting": "Hi! Let's play a game with me!",
-  "nameInputStart": "Please, tell me your name \nand I'll check your progress here..\n\nSo, what is your name? \n👉 ",
+  "nameInputStart": "Please, tell me your name \nand I'll check your progress here..\n\nSo, what is your name? 👉 ",
   "nameInputMistake": "Sorry, I forgot to explain you \nsome rules regarding a name...\n\nA name can contain \nonly big or small letters, numbers \nand symbols like these: \"-\" \"_\" \".\" \n\nSo, let's try again 👉 ",
-  "userNotFound": "Hmm🤔... \nLooks like you're here for the first time."
+  "userNotFound": "Hmm🤔... \nLooks like you're here for the first time.",
+  "gameForNewUser": "Let's start a new game\n\nSend me \"start\" 👉 ",
+  "gameForOldUser": "I'm glad to see you again\n\nSend me \"go\" and we will continue your game\n\nWaiting for you 👉 ",
+  "gameForNewUserRepeat": "Hmm🤔... \nLooks like it was a mistake. \n\nLet's try one more time\n\nSend me \"start\" 👉 ",
+  "gameForOldUserRepeat": "Hmm🤔... \nLooks like it was a mistake. \n\nLet's try one more time\n\nSend me \"go\" 👉 "
 }
