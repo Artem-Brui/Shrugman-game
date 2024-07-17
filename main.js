@@ -16,6 +16,7 @@ const Gamer = require('./scripts/class-gamer.js');
 
 //#endregion ==============
 
+
 //#region VARIABLES 
 
 const movies = [...LINK_TITLES.movies];
@@ -29,7 +30,9 @@ const pathGamersFile = './content/gamers.json';
 //#region FUNCTIONS 
 
 
-//PREPARING BEFORE THE GAME
+
+
+//#region ===== PREPARING BEFORE THE GAME
 
 
 //#region FUNCTION gameStart() that start game from beginning
@@ -38,7 +41,7 @@ const gameStart = () => roadMap();
 
 //#endregion ==============
 
-//#region FUNCTION userInput() return user input'
+//#region FUNCTION userAnswer() return user input'
 
 const userAnswer = message => readlineSync.question(message);
 
@@ -62,8 +65,9 @@ const nameIsValid = name => {
   console.log(`${LINK_PICTURES.welcome}\n`);
 
   const pattern = /^[a-zA-Z0-9\-._]+$/; //can use a-z, A-Z, 0-9,"_", "-", "."
-
-  return name.split('').every(character => pattern.test(character));
+  return name === ''
+    ? false
+    : name.split('').every(character => pattern.test(character) && character !== '');
 }
 
 //#endregion ==============
@@ -73,7 +77,7 @@ const nameIsValid = name => {
 function nameChanger() {
   console.clear();
   console.log(`${LINK_PICTURES.welcome}\n`);
-  const repeatName = userInput(`${LINK_SPEAKING.nameInputMistake}`);
+  const repeatName = userAnswer(`${LINK_SPEAKING.nameInputMistake}`);
   return repeatName;
 }
 
@@ -115,7 +119,6 @@ function getCommandToStart(newUserName, repeatMarker) {
 
 //#region FUNCTION changeGamersList() that create new item in the gamers list. Nothing to return, just aside affect.
 
-
 function changeGamersList(pathToGamers, newUserName, action) {
   let currentJson = {};
   
@@ -127,18 +130,21 @@ function changeGamersList(pathToGamers, newUserName, action) {
 
     currentJson = JSON.parse(data);
 
-    if (action === 'add') {
-      const newUser = new Gamer(newUserName);
-      newUser.id = currentJson.gamers[currentJson.gamers.length - 1].id + 1;
-      currentJson.gamers.push(newUser);
-    }
-
-    if (action === 'delete') {
-      for (const user of currentJson.gamers) {
-        if (user.name === newUserName) {
-          currentJson.gamers.splice(currentJson.gamers.indexOf(user), 1);
+    switch (action) {
+      case 'add-new-gamer':
+        const newUser = new Gamer(newUserName);
+        newUser.id = currentJson.gamers[currentJson.gamers.length - 1].id + 1;
+        currentJson.gamers.push(newUser);
+        break;
+      case 'delete-gamer':
+        for (const user of currentJson.gamers) {
+          if (user.name === newUserName) {
+            currentJson.gamers.splice(currentJson.gamers.indexOf(user), 1);
+          }
         }
-      }
+        break;
+      default:
+        break;
     }
 
     const jsonString = JSON.stringify(currentJson, null, 2);
@@ -152,25 +158,11 @@ function changeGamersList(pathToGamers, newUserName, action) {
 
 //#endregion ==============
 
-
-// {
-//   "gamers": [
-//     { "id": 1, "name": "InitialUser-BOT", "games": [] }]
-// }
-
-
-
-//THE GAME
-
-
-
-
-
 //#region FUNCTION addGameToUser() 
 
-function addGameToUser(name) {
-    obj.addNewGame(title, 'movies', 'new', '');
-}
+// function addGameToUser(name) {
+//     obj.addNewGame(title, 'movies', 'new', '');
+// }
 
 //#endregion ==============
 
@@ -178,11 +170,11 @@ function addGameToUser(name) {
 
 function startNewRound(userName, startInput, pathToGamers) {
   switch (startInput) {
-    case "start":
-      changeGamersList(pathToGamers, userName, 'add');
+    case "st":
+      changeGamersList(pathToGamers, userName, 'add-new-gamer');
+      //changeGamersList(pathToGamers, userName, 'delete-gamer');
       break;
     case "go":
-      changeGamersList(pathToGamers, userName, 'delete');
       console.log('2');
       break;
     default:
@@ -199,10 +191,28 @@ function startNewRound(userName, startInput, pathToGamers) {
 
 //#endregion ==============
 
+// {
+//   "gamers": [
+//     { "id": 1, "name": "InitialUser-BOT", "games": [] }]
+// }
 
-//THE GAME STEPS
+//#endregion ==============
 
 
+
+
+//#region ====== THE GAME
+
+
+
+
+
+//#endregion
+
+
+
+
+//#region ====== THE GAME STEPS
 
 //#region FUNCTION roadMap() go through all steps of a game
 
@@ -227,6 +237,9 @@ function roadMap() {
 
 
 //#endregion ==============
+
+//#endregion ======FUNCTIONS======
+
 
 gameStart()
 
