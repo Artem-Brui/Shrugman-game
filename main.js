@@ -2,10 +2,17 @@
 
 //#region IMPORTED DATA 
 
-const LINK_SPEAKING = require('./game-data/speaking.json');
-const LINK_TITLES = require('./game-data/titles.json');
-const LINK_PICTURES = require('./game-data/pictures.json');
+const LINK_SPEAKING = require('./content/speaking.json');
+const LINK_TITLES = require('./content/titles.json');
+const LINK_PICTURES = require('./content/pictures.json');
+const LINK_GAMERS_LIST = require('./content/gamers.json');
+
+
 var readlineSync = require('readline-sync');
+const FS = require('fs');
+const Gamer = require('./scripts/class-gamer.js');
+
+
 
 //#endregion ==============
 
@@ -13,47 +20,29 @@ var readlineSync = require('readline-sync');
 
 const movies = [...LINK_TITLES.movies];
 const books = [...LINK_TITLES.books];
-const gamers = [];
+const pathGamersFile = './content/gamers.json';
+// const gamers = [{ id: 1, name: 'InitialUser-BOT', games: [] }];
 
 //#endregion ==============
 
-//#region CLASSES 
-
-class gamer {
-  constructor (gamerName) {
-      this.id = 0;
-      this.name = gamerName;
-      this.games = [];
-  }
-
-  addNewGame(title, categoryName, gameStatus, lastGameDate) {
-    this.games.push({
-      title,
-      categoryName,
-      gameStatus,
-      lastGameDate
-    })
-  }
-
-  updateDateOfGame(title) {
-    const gameToUpdate = this.games.find(game => game.title === title);
-    const currentDate = new Date().toJSON().slice(0,10).replace(/-/g,'.');
-    gameToUpdate.lastGameDate = `${currentDate}`;
-  }
-}
-
-gamers.push(new gamer('BOT'));
-
-// gamers[gamers.length - 1].updateDateOfGame('dkjjds')
-
-
-
-console.clear();
-
- 
-//#endregion ==============
 
 //#region FUNCTIONS 
+
+
+//PREPARING BEFORE THE GAME
+
+
+//#region FUNCTION gameStart() that start game from beginning
+
+const gameStart = () => roadMap();
+
+//#endregion ==============
+
+//#region FUNCTION userInput() return user input'
+
+const userAnswer = message => readlineSync.question(message);
+
+//#endregion ==============
 
 //#region FUNCTION greetingGame() that say hello and get a name of user
 
@@ -84,107 +73,162 @@ const nameIsValid = name => {
 function nameChanger() {
   console.clear();
   console.log(`${LINK_PICTURES.welcome}\n`);
-  const repeatName = readlineSync.question(`${LINK_SPEAKING.nameInputMistake}`);
+  const repeatName = userInput(`${LINK_SPEAKING.nameInputMistake}`);
   return repeatName;
 }
 
 //#endregion ==============
 
-//#region FUNCTION startNewRound() that check is user already exist in the game
+//#region FUNCTION isUserNameExist() that check is user already exist in the game and return true or false
 
-function startNewRound(newUserName, repeatMarker) {
+const isUserNameExist = (pathToGamers, userName) => pathToGamers.gamers.some(gamer => gamer["name"] === userName);
+
+//#endregion ==============
+
+//#region FUNCTION takeCommandToStart() that get and return user input to start new round
+
+function getCommandToStart(newUserName, repeatMarker) {
   console.clear();
   let userInput = '';
-  const filterFunction = gamer => newUserName === gamer['name'];
 
   if (repeatMarker > 0) {
-    gamers.filter(filterFunction).length === 0
+    !isUserNameExist(LINK_GAMERS_LIST, newUserName)
     ? (console.log(`${LINK_PICTURES.thinking}\n`),
-      userInput = readlineSync.question(LINK_SPEAKING.gameForNewUserRepeat))
+      userInput = userAnswer(LINK_SPEAKING.gameForNewUserRepeat))
     : (console.log(`${LINK_PICTURES.thinking}\n`),
-      userInput = readlineSync.question(LINK_SPEAKING.gameForOldUserRepeat));
+      userInput = userAnswer(LINK_SPEAKING.gameForOldUserRepeat));
 
     return userInput;
-  }
+  } 
 
-  gamers.filter(filterFunction).length === 0
-    ? (console.log(`${LINK_PICTURES.smile}\n`),
-      userInput = readlineSync.question(LINK_SPEAKING.gameForNewUser))
-    : (console.log(`${LINK_PICTURES.smile}\n`),
-      userInput = readlineSync.question(LINK_SPEAKING.gameForOldUser));
+  !isUserNameExist(LINK_GAMERS_LIST, newUserName)
+  ? (console.log(`${LINK_PICTURES.smile}\n`),
+    userInput = userAnswer(LINK_SPEAKING.gameForNewUser))
+  : (console.log(`${LINK_PICTURES.smile}\n`),
+    userInput = userAnswer(LINK_SPEAKING.gameForOldUser));
 
   return userInput;
-  //can be "start" or "go"
+    //can be "start" or "go"
 }
 
 //#endregion ==============
 
-//#region FUNCTION gameStart() that start game from beginning
+//#region FUNCTION changeGamersList() that create new item in the gamers list. Nothing to return, just aside affect.
 
-const gameStart = () => gameSteps();
 
-//#endregion ==============
+function changeGamersList(pathToGamers, newUserName, action) {
+  let currentJson = {};
+  
+  FS.readFile(pathToGamers, 'utf8', (err, data) => {
+    if (err) {
+      console.error('Can\'t read file:', err);
+      return;
+    }
 
-//#region FUNCTION addNewGamer() that create new item in the gamers list
+    currentJson = JSON.parse(data);
 
-function addNewGamer(name) {
-  gamers.push(new gamer(name));
-  const newGamer = gamers[gamers.length - 1];
+    if (action === 'add') {
+      const newUser = new Gamer(newUserName);
+      newUser.id = currentJson.gamers[currentJson.gamers.length - 1].id + 1;
+      currentJson.gamers.push(newUser);
+    }
 
-  newGamer.id = gamers[gamers.length - 2].id + 1
+    if (action === 'delete') {
+      for (const user of currentJson.gamers) {
+        if (user.name === newUserName) {
+          currentJson.gamers.splice(currentJson.gamers.indexOf(user), 1);
+        }
+      }
+    }
 
-  for (const title of movies) {
-    newGamer.addNewGame(title, 'movies', 'new', '');
-  }
-
-  for (const title of books) {
-    newGamer.addNewGame(title, 'books', 'new', '');
-  }
+    const jsonString = JSON.stringify(currentJson, null, 2);
+    FS.writeFile(pathToGamers, jsonString, (err) => {
+        if (err) {
+            console.error('Can\'t write file', err);
+        }
+      });
+  });
 }
 
 //#endregion ==============
 
 
+// {
+//   "gamers": [
+//     { "id": 1, "name": "InitialUser-BOT", "games": [] }]
+// }
 
 
-//#region FUNCTION gameSteps() go through all steps of a game
 
-function gameSteps(name) {
+//THE GAME
+
+
+
+
+
+//#region FUNCTION addGameToUser() 
+
+function addGameToUser(name) {
+    obj.addNewGame(title, 'movies', 'new', '');
+}
+
+//#endregion ==============
+
+//#region FUNCTION startNewRound() 
+
+function startNewRound(userName, startInput, pathToGamers) {
+  switch (startInput) {
+    case "start":
+      changeGamersList(pathToGamers, userName, 'add');
+      break;
+    case "go":
+      changeGamersList(pathToGamers, userName, 'delete');
+      console.log('2');
+      break;
+    default:
+      getCommandToStart(userName, 1)
+      break;
+  }
+}
+
+//#endregion ==============
+
+//#region FUNCTION startNewRound() 
+
+
+
+//#endregion ==============
+
+
+//THE GAME STEPS
+
+
+
+//#region FUNCTION roadMap() go through all steps of a game
+
+function roadMap() {
   console.log(greetingGame());
 
   // user name input
-  let currentUserName = readlineSync.question(LINK_SPEAKING.nameInputStart);
+  let currentUserName = userAnswer(LINK_SPEAKING.nameInputStart);
 
   //name validation
   while (!nameIsValid(currentUserName)) {
     currentUserName = nameChanger();
   };
-
   // start new round user input
-  let currentUserGameStartInput = startNewRound(currentUserName);
-  switch (currentUserGameStartInput) {
-    case "start":
-      addNewGamer(currentUserName);
-      console.log(gamers);
-      break;
-    case "go":
-      console.log('2');
-      break;
-    default:
-      startNewRound(currentUserName, 1)
-      break;
-  }
+  const commandToStart = getCommandToStart(currentUserName);
+  startNewRound(currentUserName, commandToStart, pathGamersFile);
 
-  
-  
+
 }
 //#endregion ==============
+
 
 
 //#endregion ==============
 
 gameStart()
-// console.log(gamers[gamers.length - 1]);
 
 
 

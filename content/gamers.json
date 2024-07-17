@@ -1,0 +1,14 @@
+{
+  "gamers": [
+    {
+      "id": 1,
+      "name": "InitialUser-BOT",
+      "games": []
+    },
+    {
+      "id": 3,
+      "name": "tom",
+      "games": []
+    }
+  ]
+}
