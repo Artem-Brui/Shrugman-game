@@ -6,5 +6,8 @@
   "gameForNewUser": "Let's start a new game\n\nSend me \"st\" 👉 ",
   "gameForOldUser": "I'm glad to see you again\n\nSend me \"go\" and we will continue your game\n\nWaiting for you 👉 ",
   "gameForNewUserRepeat": "Hmm🤔... \nLooks like it was a mistake. \n\nLet's try one more time\n\nSend me \"st\" 👉 ",
-  "gameForOldUserRepeat": "Hmm🤔... \nLooks like it was a mistake. \n\nLet's try one more time\n\nSend me \"go\" 👉 "
+  "gameForOldUserRepeat": "Hmm🤔... \nLooks like it was a mistake. \n\nLet's try one more time\n\nSend me \"go\" 👉 ",
+  "makeChoiceWithLetter": "Send me your letter 👉 ",
+  "repeatChoiceWithLetter": "Hmm🤔... \nLooks like it was a mistake. \nPlease send me exactly one letter\nSend me your letter 👉 ",
+  "winner": "Great job!! \nYou won!"
 }
