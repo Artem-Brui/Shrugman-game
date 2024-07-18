@@ -9,5 +9,6 @@
   "gameForOldUserRepeat": "Hmm🤔... \nLooks like it was a mistake. \n\nLet's try one more time\n\nSend me \"go\" 👉 ",
   "makeChoiceWithLetter": "Send me your letter 👉 ",
   "repeatChoiceWithLetter": "Hmm🤔... \nLooks like it was a mistake. \nPlease send me exactly one letter\nSend me your letter 👉 ",
-  "winner": "Great job!! \nYou won!"
+  "winner": "Great job!! \nYou won!",
+  "loser": "You lose! \nMaybe, Today is not your day, \nI'm sure You'll win next time!"
 }
