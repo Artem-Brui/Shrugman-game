@@ -1,8 +1,7 @@
 # Shrugman-game
 
-# Game Project
 
-Welcome to the Game Project! This README file will guide you through the setup, functionality, and rules of the game.
+Welcome to the Shrugman-game! This README file will guide you through the setup, functionality, and rules of the game.
 
 ## Table of Contents
 
@@ -47,13 +46,14 @@ This project is a simple command-line game where players can engage in a guessin
 1. **Clone the Repository**:  
   Ensure you have Node.js installed. Then, install the required packages using npm:
   ```
-  git clone <repository-url>
-  cd <repository-directory>
+  git clone git@github.com:Artem-Brui/Shrugman-game.git
+  cd Shrugman-game
   ```
 2. **Install Dependencies**:  
   Ensure you have Node.js installed. Then, install the required packages using npm:
   ```
-  npm install readline-sync
+  npm i readline-sync
+  npm i fs
   ```
 
 3. **Content Files**:  
