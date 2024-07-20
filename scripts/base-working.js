@@ -1,16 +1,19 @@
 
 //--EXTERNAL SERVICES IMPORT
-var fs = require('fs');
+import {
+  fs,
+  SPEAKING_BASE,
+  TITLES_BASE,
+  PICTURES_BASE,
+  isUserNameExist
+} from './direct-functions.js';
+
 
 //--SCRIPTS IMPORT
-const {
-  Gamer,
-  NewGame
-} = require('./classes.js');
+import { Gamer, NewGame } from './classes.js';
 
+const GAMERS_LIST_BASE = JSON.parse(await fs.readFile('./content/gamers-base.json', 'utf8'));
 
-//===FUNCTION isUserExist() that check is user already exist in the game and returns true or false
-const isUserExist = (userName, base) => base.some(gamer => gamer["name"] === userName);
 
 //===FUNCTION isUserHasGame() that check is user has a game and returns true or false
 const isUserHasGame = (user, titleOfGame) => user.games.some((game) => titleOfGame === game.title);
@@ -35,38 +38,36 @@ function getTodayDate() {
 //  gamer-game-status-lose
 function changeGamersList(UserName, actions, gameTitle, gameCategory) {
   const pathToGamers = './content/gamers-base.json';
-  const rawData = fs.readFileSync(pathToGamers, 'utf8');
-  const parsedData = JSON.parse(rawData);
-  const gamersList = parsedData.gamers;
-  
+  const gamersStorage = GAMERS_LIST_BASE;
+
   for (let action of actions) {
     switch (action) {
       case 'gamer-add':
-        if (!isUserExist(UserName, gamersList)) {
+        if (!isUserNameExist(UserName)) {
           const newUser = {...new Gamer(UserName)};
-          newUser.id = gamersList.length 
-            ? gamersList[gamersList.length - 1].id + 1
+          newUser.id = gamersStorage.gamers.length 
+            ? gamersStorage.gamers[gamersStorage.gamers.length - 1].id + 1
             : 1;
-          gamersList.push(newUser);
+          gamersStorage.gamers.push(newUser);
         }
         break;
 
       case 'gamer-delete':
-        if (isUserExist(UserName)) {
-          gamersList.forEach(gamer => {
+        if (isUserNameExist(UserName)) {
+          gamersStorage.gamers.forEach(gamer => {
             if (gamer.name === UserName) {
-              const gamerIndex = gamersList.indexOf(gamer);
-              gamersList.splice(gamerIndex, 1);
+              const gamerIndex = gamersStorage.gamers.indexOf(gamer);
+              gamersStorage.gamers.splice(gamerIndex, 1);
             }
           })
         }
         break;
 
       case 'gamer-game-add':
-        if (isUserExist(UserName, gamersList)) {
+        if (isUserNameExist(UserName)) {
           const newUserGame = {...new NewGame(gameTitle, gameCategory, 'not-finished', getTodayDate())};
 
-          gamersList.forEach(gamer => {
+          gamersStorage.gamers.forEach(gamer => {
             if (gamer.name === UserName && !isUserHasGame(gamer, gameTitle)) {
               gamer.games.push(newUserGame);
             }
@@ -75,8 +76,8 @@ function changeGamersList(UserName, actions, gameTitle, gameCategory) {
         break;
 
       case 'gamer-game-clean':
-        if (isUserExist(UserName, gamersList)) {
-          gamersList.forEach(gamer => {
+        if (isUserNameExist(UserName)) {
+          gamersStorage.gamers.forEach(gamer => {
             if (gamer.name === UserName) {
               gamer.games = [];
             }
@@ -85,8 +86,8 @@ function changeGamersList(UserName, actions, gameTitle, gameCategory) {
         break;
 
       case 'gamer-game-status-win':
-        if (isUserExist(UserName, gamersList)) {
-          gamersList.forEach(gamer => {
+        if (isUserNameExist(UserName)) {
+          gamersStorage.gamers.forEach(gamer => {
             if (gamer.name === UserName && isUserHasGame(gamer, gameTitle)) {
               gamer.games.forEach((game) => {
                 if (game.title === gameTitle) {
@@ -99,8 +100,8 @@ function changeGamersList(UserName, actions, gameTitle, gameCategory) {
         break;
 
       case 'gamer-game-status-lose':
-        if (isUserExist(UserName, gamersList)) {
-          gamersList.forEach(gamer => {
+        if (isUserNameExist(UserName)) {
+          gamersStorage.gamers.forEach(gamer => {
             if (gamer.name === UserName && isUserHasGame(gamer, gameTitle)) {
               gamer.games.forEach((game) => {
                 if (game.title === gameTitle) {
@@ -111,15 +112,14 @@ function changeGamersList(UserName, actions, gameTitle, gameCategory) {
           })
         }
         break;
-
-      default:
-        break;
     }
   }
 
-  fs.writeFileSync(pathToGamers, JSON.stringify(parsedData, null, 2))
+  fs.writeFile(pathToGamers, JSON.stringify(gamersStorage, null, 2))
 }
 
-module.exports = { 
-  changeGamersList
-};
+export {changeGamersList};
+
+// {
+//   "gamers": []
+// }

@@ -17,7 +17,7 @@ class NewGame {
   }
 }
 
-module.exports = { 
+export { 
   Gamer,
   NewGame
 };
