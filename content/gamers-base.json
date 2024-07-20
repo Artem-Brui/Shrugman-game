@@ -1,33 +1,3 @@
 {
-  "gamers": [
-    {
-      "id": 1,
-      "name": "ar",
-      "games": []
-    },
-    {
-      "id": 2,
-      "name": "art",
-      "games": [
-        {
-          "title": "The Grapes of Wrath",
-          "categoryName": "books",
-          "gameStatus": "not-finished",
-          "lastGameDate": "20.7.2024"
-        }
-      ]
-    },
-    {
-      "id": 3,
-      "name": "jkk",
-      "games": [
-        {
-          "title": "The Aeneid",
-          "categoryName": "books",
-          "gameStatus": "not-finished",
-          "lastGameDate": "20.7.2024"
-        }
-      ]
-    }
-  ]
+  "gamers": []
 }
