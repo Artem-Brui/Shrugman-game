@@ -10,10 +10,10 @@ class Gamer {
 
 class NewGame {
   constructor (title, categoryName, gameStatus, lastGameDate) {
-    title,
-    categoryName,
-    gameStatus,
-    lastGameDate
+    this.title = title,
+    this.categoryName = categoryName,
+    this.gameStatus = gameStatus,
+    this.lastGameDate = lastGameDate
   }
 }
 
