@@ -2,20 +2,10 @@
 
 import {
   SPEAKING_BASE,
-  TITLES_BASE,
-  PICTURES_BASE,
-  GAMERS_LIST_BASE,
-  fs,
-  readlineSync,
   gameScreen,
-  startNewRound,
-  getGameTitle,
-  getCategory,
-  getUserName,
-  getCommandToStart,
-  isUserNameExist,
+  getOldGamesList,
+  chalk,
   userAnswer,
-  nameIsValid
 } from './direct-functions.js';
 
 
@@ -72,11 +62,11 @@ function gameRound(title) {
 
     do {
       console.clear();
-      gameScreen(['thinking'], [`\n${gameTitle}\n`, `\n${gameShragman}\n`]);
+      gameScreen(['thinking'], [`\n${chalk.greenBright(gameTitle)}\n`, `\n${chalk.red(gameShragman)}\n`]);
 
       needToRepeat
-        ? letterForChecking = userAnswer(`${SPEAKING_BASE.userLetterInputRepeat}`)
-        : letterForChecking = userAnswer(`${SPEAKING_BASE.userLetterInput}`);
+        ? letterForChecking = userAnswer(`${chalk.green(SPEAKING_BASE.userLetterInputRepeat)}`)
+        : letterForChecking = userAnswer(`${chalk.green(SPEAKING_BASE.userLetterInput)}`);
       
       needToRepeat = true;
     } while (letterForChecking.length !== 1) //some validator of user input (ONLY ONE letter accept)
@@ -93,17 +83,7 @@ function gameRound(title) {
 
   } while (gameTitle.includes('_') && gameShragman.length !== shragman.length);
 
-  console.clear();
-
-  //Outoput message depending a result of game
-  switch (gameStatus) {
-    case 'lose':
-      gameScreen(['sad'], [`\n${gameTitle}\n`, `\n${SPEAKING_BASE.loser}\n`])
-      break;
-    case 'win':
-      gameScreen(['sad'], [`\n${gameTitle}\n`, `\n${SPEAKING_BASE.winnner}\n`])
-      break;
-  }
+  
 
     return gameStatus;
 }

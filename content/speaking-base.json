@@ -3,8 +3,10 @@
   "nameStart": "\nPlease, tell me your name \nand I'll check your progress here..",
   "nameStartRepeat": "Sorry, I forgot to explain you \nsome rules regarding a name...\n\nA name can contain \nonly big or small letters, numbers \nand symbols like these: \"-\" \"_\" \".\"",
   "userNotFound": "Hmm🤔... \nLooks like you're here for the first time.",
-  "gameForNewUser": "Let's start a new game\nSend me \"st\" to start",
-  "gameForOldUser": "I'm glad to see you again\nSend me \"go\" and we will continue your game",
+  "gameForNewUser": "Let's start a new game\n\n",
+  "gameForOldUser": "I'm glad to see you again\n\n",
+  "sendSt": "Send me \"st\" to start",
+  "sendGo": "Send me \"go\" and we will continue your game",
   "gameForNewUserRepeat": "Hmm🤔... \nLooks like it was a mistake. \nLet's try one more time",
   "gameForOldUserRepeat": "Hmm🤔... \nLooks like it was a mistake. \nLet's try one more time",
   "gameCategoryList": "We have a few categories for you:\n",
@@ -13,6 +15,7 @@
   "userInput": "\nWaiting for your input 👉 ",
   "userLetterInput": "\nGuess a letter 👉 ",
   "userLetterInputRepeat": "Hmm🤔... \nLooks like it was a mistake. \nPlease send me exactly one letter\nSend me your letter 👉 ",
-  "winner": "Great job!! \nYou won!",
-  "loser": "You lose! \nMaybe, Today is not your day, \nI'm sure You'll win next time!"
+  "winner": "GREAT JOB!! You Win!!!",
+  "loser": "You lose! \nMaybe, Today is not your day, \nI'm sure You'll win next time!",
+  "restart": "What about one more game?? (y / n)"
 }

@@ -1,42 +1,39 @@
 
 
-
 //--SCRIPTS IMPORT
 import {
-  startNewRound, 
-  isUserNameExist,
-  getUserName,
-  changeGamersList,
-  getGameTitle,
-  SPEAKING_BASE,
-  TITLES_BASE,
+  gameSteps,
+  chalk,
+  gameRound,
   PICTURES_BASE,
-  GAMERS_LIST_BASE
+  userAnswer,
+  SPEAKING_BASE,
+  GAMERS_LIST_BASE,
+  animeMaker,
+  getUserName,
+  gameScreen
 } from './scripts/direct-functions.js';
 
 
 //===GAME-STEPS
-function letStart() {
-  // get user name
+async function letStart() {
+  console.clear();
+  // get user name  
+  await animeMaker(PICTURES_BASE["smile-anime"], PICTURES_BASE["smile"], 40, ['blue', 'cyan']);
   let currentUserName = getUserName();
+  gameSteps(currentUserName);
 
-  // start new round
-  startNewRound(currentUserName);
-}
+} 
 
+// console.clear();
+// gameScreen();
 
-//console.clear()
-//console.log(getGameTitle('userName', 'books'))
+//console.log(chalk.red(PICTURES_BASE.top));
 
+ 
 letStart()
 
+//animeMaker(PICTURES_BASE["win-anime"], 300, ['blue', 'yellow']); 
 
-//console.log(GAMERS_LIST_BASE.gamers);
 
-//gameScreen(['welcome'], ['greeting'])
-//changeGamersList("user", ["gamer-add", "gamer-game-add"], "gameTitle", "gameCategory")
-
-// const SPEAKING_BASE = JSON.parse(await fs.readFile('./content/speaking-base.json', 'utf8'));
-// const TITLES_BASE = JSON.parse(await fs.readFile('./content/titles-base.json', 'utf8'));
-// const PICTURES_BASE = JSON.parse(await fs.readFile('./content/pictures-base.json', 'utf8'));
-// const GAMERS_LIST_BASE = JSON.parse(await fs.readFile('./content/gamers-base.json', 'utf8'));
+export { letStart };
