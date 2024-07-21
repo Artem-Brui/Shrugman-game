@@ -1,5 +1,5 @@
 
-
+//--SCRIPTS IMPORT
 import {
   SPEAKING_BASE,
   gameScreen,
@@ -9,8 +9,8 @@ import {
 } from './direct-functions.js';
 
 
-//GAME-LOGIK
-//===FUNCTION game()<< that return a status(string) of game result "not-finished", "win" or "lose"
+//--GAME-LOGIK
+//===FUNCTION gameRound()<< that return a result of game. Results: "not-finished", "win" or "lose"
 function gameRound(title) {
   console.clear();
   let gameStatus = "";
@@ -83,13 +83,9 @@ function gameRound(title) {
 
   } while (gameTitle.includes('_') && gameShragman.length !== shragman.length);
 
-  
-
-    return gameStatus;
+  return gameStatus;
 }
 
-// console.clear()
-// console.log(gameScreen('welcome'));
 
-
+//--EXPORT
 export {gameRound};

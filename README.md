@@ -39,7 +39,8 @@ This project is a simple command-line game where players can engage in a guessin
 
 4. **Winning and Losing**:
    - The game ends when the user either correctly guesses the title or exhausts their allowed number of incorrect guesses.
-   - The game status is updated to `win` or `lose` based on the outcome.
+   - The game has a base where save data about user's games history and its results.
+   - The game status is updated to `win` or `lose` based on the outcome. This status updates base data and save it.
 
 ## Setup Instructions
 
@@ -54,10 +55,13 @@ This project is a simple command-line game where players can engage in a guessin
   ```
   npm i readline-sync
   npm i fs
+  npm i fs-extra
+  npm i chalk
   ```
 
 3. **Content Files**:  
-  Ensure that the content files (speaking-base.json, titles-base.json, pictures-base.json, gamers-base.json) are present in the ./content/ directory.
+   - Ensure that the content files (speaking-base.json, titles-base.json, pictures-base.json, gamers-base.json) are present in the ./content/ directory.
+   - Ensure that the scripts files (direct-functions.js, classes.js, base-working.js, game-round.js) are present in the ./scripts/ directory.
 
 4. **Run the Game**:  
   Execute the game script using Node.js:

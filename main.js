@@ -1,21 +1,13 @@
 
-
 //--SCRIPTS IMPORT
 import {
   gameSteps,
-  chalk,
-  gameRound,
   PICTURES_BASE,
-  userAnswer,
-  SPEAKING_BASE,
-  GAMERS_LIST_BASE,
   animeMaker,
-  getUserName,
-  gameScreen
+  getUserName
 } from './scripts/direct-functions.js';
 
 
-//===GAME-STEPS
 async function letStart() {
   console.clear();
   // get user name  
@@ -25,15 +17,7 @@ async function letStart() {
 
 } 
 
-// console.clear();
-// gameScreen();
-
-//console.log(chalk.red(PICTURES_BASE.top));
-
- 
 letStart()
 
-//animeMaker(PICTURES_BASE["win-anime"], 300, ['blue', 'yellow']); 
-
-
+//--EXPORT
 export { letStart };

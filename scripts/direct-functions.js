@@ -19,9 +19,7 @@ const GAMERS_LIST_BASE = fs.readJsonSync('./content/gamers-base.json', 'utf8');
 
 
 
-
-
-//===FUNCTION gameScreen() that build the screen with pictures and messages depending on markers(string)
+//===FUNCTION gameScreen() that build the screen with pictures and messages depending on markers
 function gameScreen(pictures, messages) {
   console.clear();
 
@@ -113,7 +111,7 @@ function gameScreen(pictures, messages) {
   console.log(`${picturePart}\n${textPart}`);
 };
 
-//===FUNCTION animeMaker() that conver list of pictures to animation
+//===FUNCTION animeMaker() that converts list of pictures to animation
 function animeMaker(list, lastSlide, interval, colors, background) {
   let index = 0;
   const colored = background ? chalk[background] : chalk;
@@ -140,7 +138,7 @@ function animeMaker(list, lastSlide, interval, colors, background) {
 
     showMeSlide();
   });
-}
+};
 
 //===FUNCTION nameIsValid() that check names and returns true or false
 function nameIsValid(name) {
@@ -155,7 +153,7 @@ function capitaliser(word) {
   const capitalFirstLetter = word[0].toUpperCase();
   const restLetters = word.split("").slice(1).join('').toLowerCase();
   return `${capitalFirstLetter}${restLetters}`;
-}
+};
 
 //===FUNCTION userAnswer() returns user input
 function userAnswer(message) {
@@ -167,15 +165,11 @@ function isUserNameExist(userName) {
   return GAMERS_LIST_BASE.gamers.some(gamer => gamer["name"] === userName);
 };
 
-//===FUNCTION isUserHasGame() that check is user has a game and returns true or false
+//===FUNCTION isUserHasGame() that check is user has a game in the base and returns true or false
 function isUserHasGame(user, titleOfGame) {
   return user.games.some((game) => titleOfGame === game.title);
 };
 
-//===FUNCTION restartGame() // format: 01.7.2024
-function restartGame() {
-  
-};
 //===FUNCTION getTodayDate() // format: 01.7.2024
 function getTodayDate() {
   const fullCurrentDate = new Date();
@@ -186,7 +180,7 @@ function getTodayDate() {
   return `${day}.${month}.${year}`;
 };
 
-//===FUNCTION isUserHasGame() that check is user has a game and returns true or false
+//===FUNCTION getOldGamesList() create string with user's game history
 function getOldGamesList(user) {
   const userGames = GAMERS_LIST_BASE.gamers.filter((gamer) => gamer.name === user)[0].games;
 
@@ -329,7 +323,7 @@ function getCategory(titlesStorage) {
     return categoriesList[choicenIndex - 1];
 };
 
-//===FUNCTION startNewRound() !!!
+//===FUNCTION gameSteps() !!!
 async function gameSteps(userName) {
 
   //get command for start depending on user new or old
@@ -387,7 +381,7 @@ async function gameSteps(userName) {
   } else {
     return
   }
-} 
+};
 
 //===FUNCTION getGameTitle()<< that return a title(string) for new game and put it to user list as object with full data about game. Gamer must exist in the file gamers
 function getGameTitle(userName, category, baseOfTitle) {
@@ -407,8 +401,10 @@ function getGameTitle(userName, category, baseOfTitle) {
     titleForGame = fullGameList[randomIndex(fullGameList)];
 
   return titleForGame;
-}
+};
 
+
+//--EXPORT
 export { 
   fs,
   SPEAKING_BASE,
@@ -429,6 +425,5 @@ export {
   getOldGamesList,
   userAnswer,
   chalk,
-  restartGame,
   nameIsValid
 }

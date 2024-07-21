@@ -13,7 +13,7 @@ import {
 import { Gamer, NewGame } from './classes.js';
 
 
-//=======FUNCTION changeGamersList() that create new item in the gamers list. Nothing to return, just aside affect with file gamers-base.
+//=====FUNCTION changeGamersList() that create new item in the gamers list. Nothing to return, just aside affect with file gamers-base.
 // Actions:
 //  gamer-add
 //  gamer-delete
@@ -103,4 +103,6 @@ function changeGamersList(UserName, actions, gameTitle, gameCategory) {
   fs.writeJsonSync(pathToGamers, updatedStorage, { spaces: 2 })
 }
 
-export {changeGamersList}
+
+//--SCRIPTS IMPORT
+export { changeGamersList }

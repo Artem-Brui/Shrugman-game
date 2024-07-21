@@ -1,5 +1,4 @@
 
-
 class Gamer {
   constructor (gamerName) {
       this.id = 0;
@@ -17,6 +16,7 @@ class NewGame {
   }
 }
 
+//--EXPORT
 export { 
   Gamer,
   NewGame
