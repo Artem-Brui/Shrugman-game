@@ -378,9 +378,10 @@ async function gameSteps(userName, repeatIndex) {
   } while (newGame !== 'y' && newGame !== 'n')
 
   if (newGame === 'y') {
-    gameSteps(userName, 1)
+    gameSteps(userName, 1);
   } else {
-    return
+    console.clear();
+    return;
   }
 };
 

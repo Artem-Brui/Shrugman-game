@@ -11,16 +11,34 @@
           "lastGameDate": "21.7.2024"
         },
         {
-          "title": "The Social ddddd",
-          "categoryName": "books",
-          "gameStatus": "lose",
-          "lastGameDate": "21.7.2024"
-        },
-        {
           "title": "Thor: Ragnarok",
           "categoryName": "movies",
           "gameStatus": "not-finished",
           "lastGameDate": "21.7.2024"
+        },
+        {
+          "title": "Black Panther",
+          "categoryName": "movies",
+          "gameStatus": "win",
+          "lastGameDate": "22.7.2024"
+        },
+        {
+          "title": "Don Quixote",
+          "categoryName": "books",
+          "gameStatus": "lose",
+          "lastGameDate": "22.7.2024"
+        },
+        {
+          "title": "Gulliver’s Travels",
+          "categoryName": "books",
+          "gameStatus": "win",
+          "lastGameDate": "22.7.2024"
+        },
+        {
+          "title": "Heart of Darkness",
+          "categoryName": "books",
+          "gameStatus": "win",
+          "lastGameDate": "22.7.2024"
         }
       ]
     },
