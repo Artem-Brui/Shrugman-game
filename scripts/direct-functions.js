@@ -347,11 +347,12 @@ async function gameSteps(userName) {
       break;
   }
 
-  resultOfGame = gameRound(gameTitle);
+  //resultOfGame = gameRound(gameTitle);
+  resultOfGame = 'lose';
   actionInGamerBase = [`gamer-game-status-${resultOfGame}`];
   changeGamersList(userName, actionInGamerBase, gameTitle, gameCategory);
 
-  const titleMessage = chalk.yellow(`The Title was: \n${chalk.green(gameTitle)}`)
+  const titleMessage = chalk.yellow(`The Title was: \n${chalk.bgGreenBright.white(gameTitle)}`)
   let lastPicture = '';
   let lastMessage = '';
   let newGame = '';
@@ -359,19 +360,19 @@ async function gameSteps(userName) {
   switch (resultOfGame) {
     case 'lose':
       lastPicture = 'sad';
-      lastMessage = SPEAKING_BASE.loser;
+      lastMessage = chalk.red(SPEAKING_BASE.loser);
       await animeMaker(PICTURES_BASE["sad-anime"], PICTURES_BASE["sad"], 20, ['red', 'bgRed']);
       break;
     case 'win':
       lastPicture = 'win';
-      lastMessage = SPEAKING_BASE.winner;
+      lastMessage = chalk.green(SPEAKING_BASE.winner);
       await animeMaker(PICTURES_BASE["win-anime"], PICTURES_BASE["win"], 40, ['green', 'greenBright'], 'bgWhite');
       break;
   }
 
   do {
     console.clear();
-    gameScreen([lastPicture], [`\n${titleMessage}`, `\n${chalk.red(lastMessage)}`, `\n${chalk.magentaBright(getOldGamesList(userName))}\n`]);
+    gameScreen([lastPicture], [`\n${titleMessage}`, `\n${lastMessage}`, `\n${chalk.magentaBright(getOldGamesList(userName))}\n`]);
 
     newGame = userAnswer(chalk.green(SPEAKING_BASE.restart));
   } while (newGame !== 'y' && newGame !== 'n')

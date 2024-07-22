@@ -105,6 +105,12 @@
           "categoryName": "books",
           "gameStatus": "win",
           "lastGameDate": "21.7.2024"
+        },
+        {
+          "title": "Black Panther",
+          "categoryName": "movies",
+          "gameStatus": "win",
+          "lastGameDate": "22.7.2024"
         }
       ]
     },
@@ -151,7 +157,7 @@
         {
           "title": "Wuthering Heights",
           "categoryName": "books",
-          "gameStatus": "win",
+          "gameStatus": "lose",
           "lastGameDate": "21.7.2024"
         },
         {
@@ -189,6 +195,36 @@
           "categoryName": "movies",
           "gameStatus": "lose",
           "lastGameDate": "21.7.2024"
+        },
+        {
+          "title": "Get Out",
+          "categoryName": "movies",
+          "gameStatus": "lose",
+          "lastGameDate": "22.7.2024"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "jack",
+      "games": [
+        {
+          "title": "Saving Private Ryan",
+          "categoryName": "movies",
+          "gameStatus": "win",
+          "lastGameDate": "22.7.2024"
+        },
+        {
+          "title": "Invisible Man",
+          "categoryName": "books",
+          "gameStatus": "win",
+          "lastGameDate": "22.7.2024"
+        },
+        {
+          "title": "Reservoir Dogs",
+          "categoryName": "movies",
+          "gameStatus": "win",
+          "lastGameDate": "22.7.2024"
         }
       ]
     }
