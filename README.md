@@ -56,16 +56,16 @@ This project is a simple command-line game where players can engage in a guessin
   npm install
   ```
 3. **Content Files**:  
-   1. **File speaking-base.json** Stores Messages for interaction with a gamer.
-   2. **File titles-base.json** Stores Title for game separated by categories.
-   3. **File pictures-base.json** Stores ASCII pictures for interaction with a gamer.
-   4. **File gamers-base.json** Stores Gamers data like: NAME, ID, GAMES-LIST with Game Title, Game Category, Result Of Game, Date Of Game.
+   - **File "speaking-base.json"** Stores Messages for interaction with a gamer.
+   - **File "titles-base.json"** Stores Title for game separated by categories.
+   - **File "pictures-base.json"** Stores ASCII pictures for interaction with a gamer.
+   - **File "gamers-base.json"** Stores Gamers data like: NAME, ID, GAMES-LIST with Game Title, Game Category, Result Of Game, Date Of Game.
 
 4. **Scripts Files**:  
-   1. **File direct-functions.js** Stores the main part of actions that need during game.
-   2. **File classes.js** Stores classes for creating new gamer and new game for the storage.
-   3. **File game-round.js** Stores implementation of game round steps.
-   4. **File base-working.js** Stores a script for interaction with gamers base.
+   - **File "direct-functions.js"** Stores the main part of actions that need during game.
+   - **File "classes.j"s** Stores classes for creating new gamer and new game for the storage.
+   - **File "game-round.js"** Stores implementation of game round steps.
+   - **File "base-working.js"** Stores a script for interaction with gamers base.
 
 
 ## Usage
