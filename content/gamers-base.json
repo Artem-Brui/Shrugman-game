@@ -147,60 +147,6 @@
           "categoryName": "books",
           "gameStatus": "win",
           "lastGameDate": "21.7.2024"
-        },
-        {
-          "title": "Pride and Prejudice",
-          "categoryName": "books",
-          "gameStatus": "win",
-          "lastGameDate": "21.7.2024"
-        },
-        {
-          "title": "Wuthering Heights",
-          "categoryName": "books",
-          "gameStatus": "lose",
-          "lastGameDate": "21.7.2024"
-        },
-        {
-          "title": "Brokeback Mountain",
-          "categoryName": "movies",
-          "gameStatus": "win",
-          "lastGameDate": "21.7.2024"
-        },
-        {
-          "title": "Thor: Ragnarok",
-          "categoryName": "movies",
-          "gameStatus": "win",
-          "lastGameDate": "21.7.2024"
-        },
-        {
-          "title": "The Social Network",
-          "categoryName": "movies",
-          "gameStatus": "win",
-          "lastGameDate": "21.7.2024"
-        },
-        {
-          "title": "The Divine Comedy",
-          "categoryName": "books",
-          "gameStatus": "lose",
-          "lastGameDate": "21.7.2024"
-        },
-        {
-          "title": "Gulliver’s Travels",
-          "categoryName": "books",
-          "gameStatus": "lose",
-          "lastGameDate": "21.7.2024"
-        },
-        {
-          "title": "In The Mood For Love",
-          "categoryName": "movies",
-          "gameStatus": "lose",
-          "lastGameDate": "21.7.2024"
-        },
-        {
-          "title": "Get Out",
-          "categoryName": "movies",
-          "gameStatus": "lose",
-          "lastGameDate": "22.7.2024"
         }
       ]
     },
