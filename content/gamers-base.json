@@ -7,7 +7,7 @@
         {
           "title": "The Social Network",
           "categoryName": "movies",
-          "gameStatus": "lose",
+          "gameStatus": "win",
           "lastGameDate": "21.7.2024"
         },
         {
@@ -21,96 +21,6 @@
           "categoryName": "movies",
           "gameStatus": "not-finished",
           "lastGameDate": "21.7.2024"
-        },
-        {
-          "title": "The Great Gatsby",
-          "categoryName": "books",
-          "gameStatus": "win",
-          "lastGameDate": "21.7.2024"
-        },
-        {
-          "title": "Titanic",
-          "categoryName": "movies",
-          "gameStatus": "win",
-          "lastGameDate": "21.7.2024"
-        },
-        {
-          "title": "The Exorcist",
-          "categoryName": "movies",
-          "gameStatus": "win",
-          "lastGameDate": "21.7.2024"
-        },
-        {
-          "title": "The Red and the Black",
-          "categoryName": "books",
-          "gameStatus": "win",
-          "lastGameDate": "21.7.2024"
-        },
-        {
-          "title": "Vertigo",
-          "categoryName": "movies",
-          "gameStatus": "win",
-          "lastGameDate": "21.7.2024"
-        },
-        {
-          "title": "Moonlight",
-          "categoryName": "movies",
-          "gameStatus": "not-finished",
-          "lastGameDate": "21.7.2024"
-        },
-        {
-          "title": "Logan",
-          "categoryName": "movies",
-          "gameStatus": "win",
-          "lastGameDate": "21.7.2024"
-        },
-        {
-          "title": "Inglourious Basterds",
-          "categoryName": "movies",
-          "gameStatus": "win",
-          "lastGameDate": "21.7.2024"
-        },
-        {
-          "title": "Great Expectations",
-          "categoryName": "books",
-          "gameStatus": "lose",
-          "lastGameDate": "21.7.2024"
-        },
-        {
-          "title": "Hamlet",
-          "categoryName": "books",
-          "gameStatus": "not-finished",
-          "lastGameDate": "21.7.2024"
-        },
-        {
-          "title": "Crime and Punishment",
-          "categoryName": "books",
-          "gameStatus": "not-finished",
-          "lastGameDate": "21.7.2024"
-        },
-        {
-          "title": "Leaves of Grass",
-          "categoryName": "books",
-          "gameStatus": "not-finished",
-          "lastGameDate": "21.7.2024"
-        },
-        {
-          "title": "Pride and Prejudice",
-          "categoryName": "books",
-          "gameStatus": "lose",
-          "lastGameDate": "21.7.2024"
-        },
-        {
-          "title": "The Iliad",
-          "categoryName": "books",
-          "gameStatus": "win",
-          "lastGameDate": "21.7.2024"
-        },
-        {
-          "title": "Black Panther",
-          "categoryName": "movies",
-          "gameStatus": "win",
-          "lastGameDate": "22.7.2024"
         }
       ]
     },
@@ -128,24 +38,6 @@
           "title": "Invisible Man",
           "categoryName": "books",
           "gameStatus": "lose",
-          "lastGameDate": "21.7.2024"
-        },
-        {
-          "title": "Arrival",
-          "categoryName": "movies",
-          "gameStatus": "win",
-          "lastGameDate": "21.7.2024"
-        },
-        {
-          "title": "Inglourious Basterds",
-          "categoryName": "movies",
-          "gameStatus": "win",
-          "lastGameDate": "21.7.2024"
-        },
-        {
-          "title": "The Grapes of Wrath",
-          "categoryName": "books",
-          "gameStatus": "win",
           "lastGameDate": "21.7.2024"
         }
       ]

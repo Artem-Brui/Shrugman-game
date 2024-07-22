@@ -324,12 +324,13 @@ function getCategory(titlesStorage) {
 };
 
 //===FUNCTION gameSteps() !!!
-async function gameSteps(userName) {
+async function gameSteps(userName, repeatIndex) {
 
   //get command for start depending on user new or old
   //if new one - "st"
   //if old one - "go"
-  const startInput = getCommandToStart(userName);
+  let isRepeatGame = repeatIndex ? true : false;
+  const startInput = isRepeatGame ? 'go' : getCommandToStart(userName);
   const titleBase = TITLES_BASE;
   const gameCategory = getCategory(titleBase);
   const gameTitle = getGameTitle(userName, gameCategory, titleBase);
@@ -347,8 +348,7 @@ async function gameSteps(userName) {
       break;
   }
 
-  //resultOfGame = gameRound(gameTitle);
-  resultOfGame = 'lose';
+  resultOfGame = gameRound(gameTitle);
   actionInGamerBase = [`gamer-game-status-${resultOfGame}`];
   changeGamersList(userName, actionInGamerBase, gameTitle, gameCategory);
 
@@ -378,7 +378,7 @@ async function gameSteps(userName) {
   } while (newGame !== 'y' && newGame !== 'n')
 
   if (newGame === 'y') {
-    letStart()
+    gameSteps(userName, 1)
   } else {
     return
   }

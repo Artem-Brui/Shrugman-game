@@ -37,11 +37,12 @@ function gameRound(title) {
 
     for (let i = 0; i < title.length; i++) {
       title[i].toLowerCase() === letter.toLowerCase()
-        ? (updatedTitle += title[i], letterIsFound = true)
+        ? (updatedTitle += title[i],
+          letterIsFound = true)
         : updatedTitle += hidenTittle[i];
     }
 
-    if (!letterIsFound && gameShragman.length !== shragman.length) {
+    if ((!letterIsFound || hidenTittle.includes(letter)) && gameShragman.length !== shragman.length) {
       gameShragman += shragman[gameShragman.length];
     }
 
