@@ -53,28 +53,30 @@ This project is a simple command-line game where players can engage in a guessin
 2. **Install Dependencies**:  
   Ensure you have Node.js installed. Then, install the required packages using npm:
   ```
-  npm i readline-sync
-  npm i fs
-  npm i fs-extra
-  npm i chalk
+  npm install
   ```
-
 3. **Content Files**:  
-   - Ensure that the content files (speaking-base.json, titles-base.json, pictures-base.json, gamers-base.json) are present in the ./content/ directory.
-   - Ensure that the scripts files (direct-functions.js, classes.js, base-working.js, game-round.js) are present in the ./scripts/ directory.
+   1. **File speaking-base.json** Stores Messages for interaction with a gamer.
+   2. **File titles-base.json** Stores Title for game separated by categories.
+   3. **File pictures-base.json** Stores ASCII pictures for interaction with a gamer.
+   4. **File gamers-base.json** Stores Gamers data like: NAME, ID, GAMES-LIST with Game Title, Game Category, Result Of Game, Date Of Game.
 
-4. **Run the Game**:  
-  Execute the game script using Node.js:
-  ```
-  node main.js
-  ```
+4. **Scripts Files**:  
+   1. **File direct-functions.js** Stores the main part of actions that need during game.
+   2. **File classes.js** Stores classes for creating new gamer and new game for the storage.
+   3. **File game-round.js** Stores implementation of game round steps.
+   4. **File base-working.js** Stores a script for interaction with gamers base.
+
 
 ## Usage
 
 1. **Start the Game**:
    - Run the game script.
+    ```
+    node main.js
+    ```
    - Follow the prompts to enter your name and select a game category.
 
-1. **Game Interaction**:
+2. **Game Interaction**:
    - Guess letters to reveal the game title.
    - You will receive feedback and instructions throughout the game.
